@@ -8,6 +8,7 @@ from flask_jwt_extended import JWTManager
 from models.db import test_connection
 from models.user_model import init_db
 from routes.user_route import user_bp
+from models.db import test_connection
 
 load_dotenv()
 
