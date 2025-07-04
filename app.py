@@ -18,7 +18,7 @@ app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "super-secret")
 jwt = JWTManager(app)
 
 init_db()
-app.register_blueprint(user_bp)
+app.register_blueprint(user_bp , url_prefix='/api/user')
 
 # Upload settings
 UPLOAD_FOLDER = 'uploads'
