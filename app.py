@@ -4,12 +4,21 @@ import os
 from werkzeug.utils import secure_filename
 import uuid
 from dotenv import load_dotenv
+from flask_jwt_extended import JWTManager
+from models.db import test_connection
+from models.user_model import init_db
+from routes.user_route import user_bp
 from models.db import test_connection
 
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "super-secret")
+jwt = JWTManager(app)
+
+init_db()
+app.register_blueprint(user_bp)
 
 # Upload settings
 UPLOAD_FOLDER = 'uploads'
