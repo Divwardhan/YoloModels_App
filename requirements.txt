@@ -7,3 +7,4 @@ Flask-CORS>=3.0
 gunicorn>=21.2
 bcrypt>=4.1
 -r yolov5/requirements.txt
+
